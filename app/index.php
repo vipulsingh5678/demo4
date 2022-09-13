@@ -1,3 +1,4 @@
 <?php
-phpinfo();
+
+echo 'new server';
 ?>
