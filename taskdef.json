@@ -37,7 +37,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "images",
+      "image": "image",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -126,7 +126,7 @@
     "cpuArchitecture": null
   },
   "cpu": "256",
-  "revision": 1,
+  "revision": 2,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
