@@ -37,7 +37,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "image",
+      "image": "<IMAGE1_NAME>",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -64,7 +64,7 @@
     "EC2",
     "FARGATE"
   ],
-  "taskDefinitionArn": "taskdef",
+  "taskDefinitionArn": "<TASK_DEFINITION>",
   "family": "td-nginx",
   "requiresAttributes": [
     {
