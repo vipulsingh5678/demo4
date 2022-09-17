@@ -19,7 +19,7 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
       - docker push 164896628937.dkr.ecr.us-west-2.amazonaws.com/nginx:latest
-      - printf '[{"imageUri":"%s"}]' 164896628937.dkr.ecr.us-west-2.amazonaws.com/nginx:latest > imagedefinition.json
+      - printf '[{"imageUri":"%s"}]' 164896628937.dkr.ecr.us-west-2.amazonaws.com/nginx:latest > imageDetail.json
 artifacts:
   files: 
     - 'image*.json'
@@ -32,4 +32,4 @@ artifacts:
         - taskdef.json
     ImageArtifact:
       files:
-        - imagedefinition.json
+        - imageDetail.json
