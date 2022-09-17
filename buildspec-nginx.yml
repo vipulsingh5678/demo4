@@ -20,7 +20,7 @@ phases:
       - echo Pushing the Docker images...
       - docker push 164896628937.dkr.ecr.us-west-2.amazonaws.com/nginx:new
       - echo Writing image definitions file...
-      - printf '[{"name":"nginx","imageUri":"%s"}]' 164896628937.dkr.ecr.us-west-2.amazonaws.com/nginx:new  > imageDetail.json
+      - printf '{"ImageURI":"%s"}' 164896628937.dkr.ecr.us-west-2.amazonaws.com/nginx:new  > imageDetail.json
 artifacts:
   files: 
     - 'image*.json'
