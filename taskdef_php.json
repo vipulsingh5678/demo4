@@ -64,7 +64,7 @@
     "EC2",
     "FARGATE"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-west-2:164896628937:task-definition/t-php:1",
+  "taskDefinitionArn": "<TASK_DEFINITION>",
   "family": "t-php",
   "requiresAttributes": [
     {
