@@ -6,24 +6,31 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws --version
-      - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 164896628937.dkr.ecr.us-west-2.amazonaws.com
-      - REPOSITORY_URI=164896628937.dkr.ecr.us-west-2.amazonaws.com/php
-      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
-      - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
+     
   build:
     commands:
-      - echo Build started on `date`
-      - echo Building the Docker image...
-      - docker build -t $REPOSITORY_URI:latest -f php.Dockerfile .
-      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
+      #- echo Build started on `date`
+      #- echo Building the Docker image...
+      - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 164896628937.dkr.ecr.us-west-2.amazonaws.com
+      - docker build -t php:latest -f php.Dockerfile .
+      - docker tag php:latest 164896628937.dkr.ecr.us-west-2.amazonaws.com/php:new
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      - echo docker push $REPOSITORY_URI:latest
-      - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - docker push 164896628937.dkr.ecr.us-west-2.amazonaws.com/php:new
       - echo Writing image definitions file...
-      - printf '[{"name":"php","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
-      - cat imagedefinitions.json 
+      - printf '{"ImageURI":"%s"}' 164896628937.dkr.ecr.us-west-2.amazonaws.com/php:new  > imageDetail2.json
 artifacts:
-    files: imagedefinitions.json
+  files: 
+    - 'image*.json'
+    - 'appspec1.yml'
+    - 'taskdef1.json'
+  secondary-artifacts:
+    DefinitionArtifact:
+      files:
+        - appspec1.yml
+        - taskdef1.json
+    ImageArtifact:
+      files:
+        - imageDetail2.json
