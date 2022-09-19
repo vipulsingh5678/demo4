@@ -20,7 +20,7 @@ phases:
       - echo Pushing the Docker images...
       - docker push 164896628937.dkr.ecr.us-west-2.amazonaws.com/php:new
       - echo Writing image definitions file...
-      - printf '{"ImageURI":"%s"}' 164896628937.dkr.ecr.us-west-2.amazonaws.com/php:new  > imageDef.json
+      - printf '{"ImageURI":"%s"}' 164896628937.dkr.ecr.us-west-2.amazonaws.com/php:new  > imageDetails.json
 artifacts:
   files: 
     - 'image*.json'
@@ -33,4 +33,4 @@ artifacts:
         - taskdef1.json
     ImageArtifact:
       files:
-        - imageDef.json
+        - imageDetails.json
