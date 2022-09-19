@@ -23,7 +23,7 @@ phases:
       - printf '{"ImageURI":"%s"}' 164896628937.dkr.ecr.us-west-2.amazonaws.com/php:new  > imageDef.json
 artifacts:
   files: 
-    - 'image*.json'
+    - 'imageDef.json'
     - 'appspec1.yml'
     - 'taskdef1.json'
   secondary-artifacts:
