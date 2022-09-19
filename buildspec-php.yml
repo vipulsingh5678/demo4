@@ -20,17 +20,17 @@ phases:
       - echo Pushing the Docker images...
       - docker push 164896628937.dkr.ecr.us-west-2.amazonaws.com/php:new
       - echo Writing image definitions file...
-      - printf '{"ImageURI":"%s"}' 164896628937.dkr.ecr.us-west-2.amazonaws.com/php:new  > imageDetails.json
+      - printf '{"ImageURI":"%s"}' 164896628937.dkr.ecr.us-west-2.amazonaws.com/php:new  > imageDetail.json
 artifacts:
   files: 
     - 'image*.json'
-    - 'appspec1.yml'
-    - 'taskdef1.json'
+    - 'appspec_php.yml'
+    - 'taskdef_php.json'
   secondary-artifacts:
     DefinitionArtifact:
       files:
-        - appspec1.yml
-        - taskdef1.json
+        - appspec_php.yml
+        - taskdef_php.json
     ImageArtifact:
       files:
-        - imageDetails.json
+        - imageDetail.json
