@@ -6,7 +6,8 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws --version
-     
+      - aws s3 cp s3://bucket-taskdef-demo-13/taskdef.json   $DOWNLOAD_SOURCE/
+      - aws s3 cp s3://bucket-taskdef-demo-13/appspec.yml    $DOWNLOAD_SOURCE/  
   build:
     commands:
       #- echo Build started on `date`
